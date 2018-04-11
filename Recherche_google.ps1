@@ -1,12 +1,9 @@
-﻿$recherche = Read-Host("Que souhaitez-vous rechercher ? ")
+﻿#On demande à l'utilisateur d'entrer les termes de la recherche
+$recherche = Read-Host("Que souhaitez-vous rechercher ? ")
 
-function search($recherche)
-{
-    $searchgl = "google.com/search?q="
+#On construit l'url de la recherche
+$searchgl = "www.google.com/search?q="
+$recherche = $recherche.Replace(" ", "%20")
 
-    $recherche = $recherche.Replace(" ", "%20")
-
-    start chrome $searchgl+$recherche
-}
-
-search($recherche)
+#On lance la recherche
+start $searchgl+$recherche
